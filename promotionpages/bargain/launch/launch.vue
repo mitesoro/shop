@@ -493,13 +493,13 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/.uni-countdown__number {
+::v-deep.uni-countdown__number {
 	padding: 0 4rpx;
 	line-height: 36rpx;
 	height: 36rpx;
 }
 
-/deep/ .uni-countdown__splitor.day {
+::v-deep .uni-countdown__splitor.day {
 	line-height: 36rpx;
 }
 
@@ -1034,12 +1034,12 @@ export default {
 }
 </style>
 <style scoped>
-/deep/.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+::v-deep.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
 	overflow-y: unset;
 	background: none !important;
 }
 
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;

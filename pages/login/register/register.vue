@@ -461,7 +461,7 @@ export default {
 			height:500rpx
 		}
 	}
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;

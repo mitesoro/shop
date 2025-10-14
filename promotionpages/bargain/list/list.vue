@@ -284,12 +284,12 @@ export default {
 @import '../public/css/list.scss';
 </style>
 <style lang="scss" scoped>
-/deep/ .fixed {
+::v-deep .fixed {
 	position: relative;
 	top: 0;
 }
 
-/deep/ .empty {
+::v-deep .empty {
 	margin-top: 0 !important;
 }
 
@@ -299,7 +299,7 @@ export default {
 	}
 }
 
-/deep/ .uni-countdown__number {
+::v-deep .uni-countdown__number {
 	min-width: 32rpx;
 	height: 32rpx;
 	text-align: center;
@@ -311,7 +311,7 @@ export default {
 	border: none !important;
 }
 
-/deep/ .uni-countdown__splitor {
+::v-deep .uni-countdown__splitor {
 	width: 10rpx;
 	height: 32rpx;
 	line-height: 36rpx;
@@ -319,7 +319,7 @@ export default {
 	display: inline-block;
 }
 
-/deep/ .uni-countdown__splitor.day {
+::v-deep .uni-countdown__splitor.day {
 	width: initial;
 }
 

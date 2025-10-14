@@ -213,11 +213,11 @@
 	@import '../public/css/list.scss';
 </style>
 <style lang="scss">
-	/deep/ .mescroll-uni-warp scroll-view {
+	::v-deep .mescroll-uni-warp scroll-view {
 		padding-bottom: 110rpx !important;
 	}
 
-	.active /deep/ .mescroll-uni-warp scroll-view {
+	.active ::v-deep .mescroll-uni-warp scroll-view {
 		padding-bottom: 178rpx !important;
 	}
 </style>

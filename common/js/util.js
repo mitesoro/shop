@@ -72,6 +72,11 @@ export default {
 	img(img_path, params) {
 		var path = "";
 		if (img_path && img_path != undefined && img_path != "") {
+			// 处理特殊的透明图片请求
+			if (img_path === 'transparent') {
+				return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+			}
+			
 			if (params && img_path != this.getDefaultImage().default_goods_img) {
 				// 过滤默认图
 				let arr = img_path.split(".");

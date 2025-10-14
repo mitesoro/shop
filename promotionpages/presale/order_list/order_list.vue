@@ -303,10 +303,10 @@ export default {
 @import '../public/css/order_list.scss';
 </style>
 <style scoped>
-/deep/ .uni-page {
+::v-deep .uni-page {
 	overflow: hidden;
 }
-/deep/ .mescroll-upwarp {
+::v-deep .mescroll-upwarp {
 	padding-bottom: 100rpx;
 }
 </style>

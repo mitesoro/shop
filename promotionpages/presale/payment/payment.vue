@@ -426,17 +426,17 @@ export default {
 @import './../../../common/css/order_parment.scss';
 </style>
 <style lang="scss" scoped>
-	/deep/ .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+	::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 		background: none;
 		max-height: unset !important;
 		overflow-y: hidden !important;
 	}
 	
-	/deep/ .uni-popup__wrapper {
+	::v-deep .uni-popup__wrapper {
 		border-radius: 20rpx 20rpx 0 0;
 	}
 	
-	/deep/ .uni-popup {
+	::v-deep .uni-popup {
 		z-index: 8;
 	}
 	

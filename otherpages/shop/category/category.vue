@@ -154,22 +154,22 @@
 	}
 
 	/* #ifdef H5 || APP-PLUS */
-	.active /deep/ .newpage1 {
+	.active ::v-deep .newpage1 {
 		height: calc(100vh - 134px) !important;
 	}
 
-	.no /deep/ .newpage1 {
+	.no ::v-deep .newpage1 {
 		height: calc(100vh - 100px) !important;
 	}
 
 	/* #endif */
 
 	/* #ifdef MP */
-	.active /deep/ .newpage1 {
+	.active ::v-deep .newpage1 {
 		height: calc(100vh - 144px) !important;
 	}
 
-	.no /deep/ .newpage1 {
+	.no ::v-deep .newpage1 {
 		height: calc(100vh - 110rpx) !important;
 	}
 

@@ -149,7 +149,7 @@ export default {
 
 <style lang="scss">
 @import '../public/css/logistics.scss';
-/deep/.uni-scroll-view ::-webkit-scrollbar {
+::v-deep.uni-scroll-view ::-webkit-scrollbar {
 	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 	display: none;
 	width: 0;
@@ -157,7 +157,7 @@ export default {
 	color: transparent;
 	background: transparent;
 }
-/deep/::-webkit-scrollbar {
+::v-deep::-webkit-scrollbar {
 	display: none;
 	width: 0;
 	height: 0;

@@ -502,7 +502,7 @@ export default {
 }
 </style>
 <style scoped>
-.richText /deep/ image {
+.richText ::v-deep image {
 	max-width: 100% !important;
 }
 
@@ -510,25 +510,25 @@ rich-text image {
 	max-width: 100%;
 }
 
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;
 }
 
-/deep/ .action-icon-wrap .iconfont.iconshouye1 {
+::v-deep .action-icon-wrap .iconfont.iconshouye1 {
 	font-size: 40rpx;
 }
 
-/deep/ .uni-video-cover {
+::v-deep .uni-video-cover {
 	background: none;
 }
 
-/deep/ .uni-video-cover-duration {
+::v-deep .uni-video-cover-duration {
 	display: none;
 }
 
-/deep/ .uni-video-cover-play-button {
+::v-deep .uni-video-cover-play-button {
 	border-radius: 50%;
 	border: 4rpx solid #fff;
 	width: 120rpx;
@@ -536,15 +536,15 @@ rich-text image {
 	background-size: 30%;
 }
 
-.poster-layer >>> .uni-popup__wrapper-box {
+.poster-layer ::v-deep .uni-popup__wrapper-box {
 	max-height: initial !important;
 }
 
-/deep/ .sku-layer .uni-popup__wrapper-box {
+::v-deep .sku-layer .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__number {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__number {
 	min-width: 32rpx;
 	height: 32rpx;
 	text-align: center;
@@ -556,7 +556,7 @@ rich-text image {
 	border: none;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__splitor {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__splitor {
 	width: 10rpx;
 	height: 32rpx;
 	line-height: 36rpx;
@@ -564,47 +564,47 @@ rich-text image {
 	display: inline-block;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__splitor.day {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__splitor.day {
 	width: initial;
 }
 
-.sku-layer >>> .uni-popup__wrapper-box {
+.sku-layer ::v-deep .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 }
 
-.poster-layer >>> .uni-popup__wrapper-box {
+.poster-layer ::v-deep .uni-popup__wrapper-box {
 	max-height: initial !important;
 }
 
-.pintuan-popup-layer >>> .uni-popup__wrapper-box {
+.pintuan-popup-layer ::v-deep .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 	border-radius: 10rpx;
 }
 
-.pintuan-popup-layer >>> .uni-countdown__number {
+.pintuan-popup-layer ::v-deep .uni-countdown__number {
 	padding: 0;
 	margin: 0;
 }
 
-/deep/ .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	max-height: unset !important;
 }
 
-/deep/ .goods-action-button.active1 {
+::v-deep .goods-action-button.active1 {
 	padding: 0 10px;
 }
 
-/deep/ .goods-action-button.active1 .action-buttom-wrap {
+::v-deep .goods-action-button.active1 .action-buttom-wrap {
 	height: 36px;
 	line-height: 36px;
 	border-radius: 36px;
 }
 
-/deep/ .goods-action-button.active2 {
+::v-deep .goods-action-button.active2 {
 	padding: 0 30px;
 }
 
-/deep/ .goods-action-button.active2 .action-buttom-wrap {
+::v-deep .goods-action-button.active2 .action-buttom-wrap {
 	height: 36px;
 	line-height: 36px;
 	border-radius: 36px;

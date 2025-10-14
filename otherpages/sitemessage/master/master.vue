@@ -489,7 +489,7 @@
 		align-items: center;
 	}
 	
-	.richText /deep/ image {
+	.richText ::v-deep image {
 		max-width: 40rpx;
 		max-height: 40rpx;
 	}
@@ -498,18 +498,18 @@
 		max-width: 100%;
 	}
 	
-	.richText /deep/ view.p {
+	.richText ::v-deep view.p {
 		display: flex;
 		align-items: center;
 	}
 	
-	.richText /deep/ view {
+	.richText ::v-deep view {
 		display: inline-block;
 		font-size: $font-size-tag;
 		color: $color-sub;
 	}
 	
-	.richText /deep/ view.text {
+	.richText ::v-deep view.text {
 		flex: 1;
 		overflow: hidden;
 		text-overflow: ellipsis;

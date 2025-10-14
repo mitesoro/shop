@@ -281,13 +281,13 @@
 <style lang="scss">
 	@import '../public/css/index.scss';
 
-	/deep/.uni-scroll-view::-webkit-scrollbar {
+	::v-deep.uni-scroll-view::-webkit-scrollbar {
 		/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 		display: none;
 	}
 </style>
 <style scoped>
-	/deep/ .reward-popup .uni-popup__wrapper-box {
+	::v-deep .reward-popup .uni-popup__wrapper-box {
 		background: none !important;
 		max-width: unset !important;
 		max-height: unset !important;

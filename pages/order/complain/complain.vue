@@ -382,7 +382,7 @@ export default {
 @import '../public/css/complain.scss';
 </style>
 <style scoped>
-/deep/ .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: none;
 	max-height: unset !important;
 	overflow-y: hidden !important;

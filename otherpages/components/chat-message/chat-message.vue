@@ -176,11 +176,11 @@
 </script>
 
 <style lang="scss">
-	/deep/.uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+	::v-deep.uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 		background-color: #000;
 	}
 
-	/deep/.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+	::v-deep.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
 		max-width: 100%;
 		width: 100%;
 	}

@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ .empty {
+::v-deep .empty {
 	margin-top: 0 !important;
 }
 

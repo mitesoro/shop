@@ -676,14 +676,14 @@ export default {
 }
 </style>
 <style scoped>
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;
 	overflow: unset !important;
 }
-.complete-info-popup /deep/ .uni-popup__wrapper.bottom,
-.complete-info-popup /deep/ .uni-popup__wrapper.bottom .uni-popup__wrapper-box {
+.complete-info-popup ::v-deep .uni-popup__wrapper.bottom,
+.complete-info-popup ::v-deep .uni-popup__wrapper.bottom .uni-popup__wrapper-box {
 	border-top-left-radius: 30rpx !important;
 	border-top-right-radius: 30rpx !important;
 }

@@ -752,19 +752,19 @@ export default {
 	line-height: 36rpx;
 	text-align: center;
 }
-/deep/ .uni-popup__wrapper {
+::v-deep .uni-popup__wrapper {
 	background: transparent !important;
 }
-/deep/ .sku-layer .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .sku-layer .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: transparent !important;
 }
-/deep/ .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: transparent !important;
 }
 </style>
 
 <style scoped>
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;

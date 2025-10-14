@@ -21,6 +21,31 @@ $font-size-tag: 24rpx; // 12px，辅助性文字/大标签
 $font-size-goods-tag: 22rpx; // 11px，商品列表角标
 $font-size-activity-tag: 20rpx; // 10px，活动角标（拼团等角标）/小标签文字
 
+// uni-app 标准字体大小变量定义
+$uni-font-size-sm: 24rpx; // 12px，小字体
+$uni-font-size-base: 28rpx; // 14px，基础字体
+$uni-font-size-lg: 32rpx; // 16px，大字体
+
+// uni-app 标准颜色变量定义
+$uni-text-color: #333; // 主文本颜色
+$uni-text-color-inverse: #fff; // 反色文本
+$uni-text-color-grey: #999; // 灰色文本
+$uni-text-color-placeholder: #c0c4cc; // 占位符文本颜色
+
+$uni-color-primary: #007aff; // 主要颜色
+$uni-color-error: #dd524d; // 错误颜色
+$uni-color-subtitle: #909399; // 副标题颜色
+
+$uni-bg-color: #f8f8f8; // 背景色
+$uni-bg-color-grey: #f5f5f5; // 灰色背景
+$uni-bg-color-hover: #f1f1f1; // 悬停背景色
+$uni-bg-color-mask: rgba(0, 0, 0, 0.4); // 遮罩背景色
+
+$uni-border-color: #e5e5e5; // 边框颜色
+
+// uni-app 标准间距变量定义
+$uni-spacing-row-base: 28rpx; // 基础行间距
+
 $margin-both: 30rpx; //外边距 左右
 $margin-updown: 20rpx; // 外边距 上下
 $border-radius: 10rpx; //圆角

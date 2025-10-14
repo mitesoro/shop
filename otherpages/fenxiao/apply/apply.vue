@@ -321,11 +321,11 @@ export default {
 .image {
 	width: 100%;
 }
-/deep/.uni-scroll-view {
+::v-deep.uni-scroll-view {
 	background-color: #fff;
 }
 
-/deep/.uni-scroll-view::-webkit-scrollbar {
+::v-deep.uni-scroll-view::-webkit-scrollbar {
 	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 	display: none;
 }
@@ -607,7 +607,7 @@ input::placeholder {
 </style>
 
 <style>
-/deep/ .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper-box {
 	border-radius: 20rpx;
 }
 </style>

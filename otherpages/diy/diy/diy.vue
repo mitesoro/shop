@@ -736,7 +736,7 @@ image {
 		height: 60rpx;
 	}
 }
-/deep/::-webkit-scrollbar {
+::v-deep::-webkit-scrollbar {
 	width: 0;
 	height: 0;
 	background-color: transparent;
@@ -745,18 +745,18 @@ image {
 </style>
 
 <style scoped>
-.wap-floating >>> .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+.wap-floating ::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: none !important;
 }
 
-/* .noStore-bg /deep/ .search-box {
+/* .noStore-bg ::v-deep .search-box {
 	background: #ffffff;
 }
 
-.noStore-bg /deep/ .single-graph {
+.noStore-bg ::v-deep .single-graph {
 	background: #ffffff;
 } */
-/deep/ .placeholder {
+::v-deep .placeholder {
 	height: 0;
 }
 </style>

@@ -99,15 +99,15 @@
 </style>
 
 <style lang="scss">
-	/deep/ .uni-scroll-view-content {
+	::v-deep .uni-scroll-view-content {
 		background: #ffffff;
 	}
 
-	.content /deep/ .mescroll-upwarp {
+	.content ::v-deep .mescroll-upwarp {
 		padding-bottom: 150rpx;
 	}
 
-	.content.active /deep/ .mescroll-upwarp {
+	.content.active ::v-deep .mescroll-upwarp {
 		padding-bottom: 220rpx;
 	}
 </style>

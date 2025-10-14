@@ -101,7 +101,7 @@ export default {
 .uni-view {
 	font-size: 0;
 }
-.diy-text-nav >>> .uni-scroll-view::-webkit-scrollbar {
+.diy-text-nav ::v-deep .uni-scroll-view::-webkit-scrollbar {
 	display: none;
 }
 </style>

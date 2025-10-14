@@ -424,7 +424,7 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ pick-regions,
+::v-deep pick-regions,
 .pick-regions {
 	flex: 1;
 }

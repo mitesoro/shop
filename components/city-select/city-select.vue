@@ -265,9 +265,11 @@ export default {
 </script>
 
 <style lang="scss">
+@use 'sass:math';
+
 //宽度转换vw
 @function vww($number) {
-	@return ($number / 375) * 750 + rpx;
+	@return math.div($number, 375) * 750 + rpx;
 }
 
 view {

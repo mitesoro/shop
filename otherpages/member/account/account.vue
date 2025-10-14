@@ -153,12 +153,12 @@
 </script>
 
 <style lang="scss">
-	/deep/ .fixed {
+	::v-deep .fixed {
 		position: relative;
 		top: 0;
 	}
 
-	/deep/ .empty {
+	::v-deep .empty {
 		margin-top: 0 !important;
 	}
 
@@ -258,7 +258,7 @@
 	}
 </style>
 <style>
-	/deep/ .mescroll-upwarp {
+	::v-deep .mescroll-upwarp {
 		padding-bottom: 150rpx;
 	}
 </style>

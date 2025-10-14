@@ -115,7 +115,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .ns-adv {
+::v-deep .ns-adv {
 	margin: $margin-updown $margin-both;
 	padding-top: $padding;
 	border-radius: $border-radius;
@@ -127,12 +127,12 @@ export default {
 	}
 }
 
-/deep/ .fixed {
+::v-deep .fixed {
 	position: relative;
 	top: 0;
 }
 
-/deep/ .empty {
+::v-deep .empty {
 	margin-top: 0 !important;
 }
 

@@ -597,7 +597,7 @@ export default {
 }
 </style>
 <style scoped>
->>> .ns-copyright-info {
+::v-deep .ns-copyright-info {
 	margin-bottom: 0;
 }
 </style>

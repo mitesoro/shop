@@ -145,7 +145,7 @@ export default {
 };
 </script>
 <style scoped>
-.register-box /deep/ .uni-scroll-view {
+.register-box ::v-deep .uni-scroll-view {
 	background: unset !important;
 }
 .register-box {

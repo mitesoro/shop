@@ -194,7 +194,7 @@ export default {
 @import '../public/css/list.scss';
 </style>
 <style scoped>
->>> .uni-tag--primary.uni-tag--inverted {
+::v-deep .uni-tag--primary.uni-tag--inverted {
 	background-color: #f5f5f5 !important;
 }
 </style>

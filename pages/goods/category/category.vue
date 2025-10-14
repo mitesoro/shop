@@ -85,14 +85,14 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ .uni-popup__wrapper.uni-center {
+::v-deep .uni-popup__wrapper.uni-center {
 	background: rgba(0, 0, 0, 0.6);
 }
-/deep/.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+::v-deep.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
 	border-radius: 10px;
 	background: rgba($color: #000000, $alpha: 0);
 }
-/deep/ .uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
 	overflow-y: visible;
 }
 </style>

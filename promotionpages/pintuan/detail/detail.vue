@@ -638,7 +638,7 @@ export default {
 }
 </style>
 <style scoped>
-.richText /deep/ image {
+.richText ::v-deep image {
 	max-width: 100% !important;
 }
 
@@ -646,25 +646,25 @@ rich-text image {
 	max-width: 100%;
 }
 
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;
 }
 
-/deep/ .action-icon-wrap .iconfont.iconshouye1 {
+::v-deep .action-icon-wrap .iconfont.iconshouye1 {
 	font-size: 40rpx;
 }
 
-/deep/ .uni-video-cover {
+::v-deep .uni-video-cover {
 	background: none;
 }
 
-/deep/ .uni-video-cover-duration {
+::v-deep .uni-video-cover-duration {
 	display: none;
 }
 
-/deep/ .uni-video-cover-play-button {
+::v-deep .uni-video-cover-play-button {
 	border-radius: 50%;
 	border: 4rpx solid #fff;
 	width: 120rpx;
@@ -672,15 +672,15 @@ rich-text image {
 	background-size: 30%;
 }
 
-.poster-layer >>> .uni-popup__wrapper-box {
+.poster-layer ::v-deep .uni-popup__wrapper-box {
 	max-height: initial !important;
 }
 
-/deep/ .sku-layer .uni-popup__wrapper-box {
+::v-deep .sku-layer .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__number {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__number {
 	min-width: 32rpx;
 	height: 32rpx;
 	text-align: center;
@@ -692,7 +692,7 @@ rich-text image {
 	border: none;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__splitor {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__splitor {
 	width: 10rpx;
 	height: 32rpx;
 	line-height: 36rpx;
@@ -700,102 +700,102 @@ rich-text image {
 	display: inline-block;
 }
 
-.goods-promotion .countdown .clockrun >>> .uni-countdown__splitor.day {
+.goods-promotion .countdown .clockrun ::v-deep .uni-countdown__splitor.day {
 	width: initial;
 }
 
-.spelling-block >>> .uni-countdown__splitor {
+.spelling-block ::v-deep .uni-countdown__splitor {
 	padding: 0;
 	font-size: 20rpx;
 }
 
-.sku-layer >>> .uni-popup__wrapper-box {
+.sku-layer ::v-deep .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 }
 
-.poster-layer >>> .uni-popup__wrapper-box {
+.poster-layer ::v-deep .uni-popup__wrapper-box {
 	max-height: initial !important;
 }
 
-.spelling-block >>> .uni-countdown__number {
+.spelling-block ::v-deep .uni-countdown__number {
 	padding: 0;
 	margin: 0;
 	font-size: 20rpx;
 }
 
-.pintuan-popup-layer >>> .uni-popup__wrapper-box {
+.pintuan-popup-layer ::v-deep .uni-popup__wrapper-box {
 	overflow-y: initial !important;
 	border-radius: 10rpx;
 }
 
-.pintuan-popup-layer >>> .uni-countdown__number {
+.pintuan-popup-layer ::v-deep .uni-countdown__number {
 	padding: 0;
 	margin: 0;
 }
 
-/deep/ .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	max-height: unset !important;
 }
 
-/deep/ .goods-action-button.active1 {
+::v-deep .goods-action-button.active1 {
 	padding-left: 10px;
 }
 
-/deep/ .goods-action-button.active2 {
+::v-deep .goods-action-button.active2 {
 	padding-right: 10px;
 }
 
-/deep/ .goods-action-button.active3 {
+::v-deep .goods-action-button.active3 {
 	padding: 0 10px;
 }
 
-/deep/ .goods-action-button.active4 {
+::v-deep .goods-action-button.active4 {
 	padding: 0 10px;
 }
 
-/deep/ .goods-action-button .action-buttom-wrap {
+::v-deep .goods-action-button .action-buttom-wrap {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-/deep/ .goods-action-button.active1 .action-buttom-wrap {
+::v-deep .goods-action-button.active1 .action-buttom-wrap {
 	height: 42px;
 	line-height: 42px;
 	border-top-left-radius: 42rpx;
 	border-bottom-left-radius: 42rpx;
 }
 
-/deep/ .goods-action-button.active2 .action-buttom-wrap {
+::v-deep .goods-action-button.active2 .action-buttom-wrap {
 	height: 42px;
 	line-height: 42px;
 	border-top-right-radius: 42rpx;
 	border-bottom-right-radius: 42rpx;
 }
 
-/deep/ .goods-action-button.active3 .action-buttom-wrap {
+::v-deep .goods-action-button.active3 .action-buttom-wrap {
 	height: 42px;
 	line-height: 42px;
 	border-radius: 42px;
 	margin: 10px 0;
 }
 
-/deep/ .goods-action-button.active4 .action-buttom-wrap {
+::v-deep .goods-action-button.active4 .action-buttom-wrap {
 	height: 42px;
 	line-height: 42px;
 	border-radius: 42px;
 }
 
-/deep/ .goods-action-button .action-buttom-wrap text {
+::v-deep .goods-action-button .action-buttom-wrap text {
 	line-height: 1.4;
 }
 
-[data-theme='theme-pink'] >>> .active1 .action-buttom-wrap text {
+[data-theme='theme-pink'] ::v-deep .active1 .action-buttom-wrap text {
 	color: #303133;
 }
 
-[data-theme='theme-golden'] >>> .active1 .action-buttom-wrap text {
+[data-theme='theme-golden'] ::v-deep .active1 .action-buttom-wrap text {
 	color: #303133;
 }
 </style>

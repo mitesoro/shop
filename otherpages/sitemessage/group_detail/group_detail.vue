@@ -64,7 +64,7 @@
 		padding: 30rpx;
 	}
 	
-	.richText /deep/ image {
+	.richText ::v-deep image {
 		max-width: 100% !important;
 	}
 	

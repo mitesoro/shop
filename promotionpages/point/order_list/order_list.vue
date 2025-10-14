@@ -196,12 +196,12 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ .fixed {
+::v-deep .fixed {
 	position: relative;
 	top: 0;
 }
 
-/deep/ .empty {
+::v-deep .empty {
 	padding-top: 0 !important;
 }
 

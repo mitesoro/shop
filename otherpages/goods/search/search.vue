@@ -196,12 +196,12 @@
 </script>
 
 <style lang="scss" scoped>
-	/deep/ .fixed {
+	::v-deep .fixed {
 		position: relative;
 		top: 0;
 	}
 
-	/deep/ .empty {
+	::v-deep .empty {
 		margin-top: 0 !important;
 	}
 

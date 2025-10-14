@@ -241,7 +241,7 @@ export default {
 }
 </style>
 <style scoped>
-.coupon-all >>> .uni-scroll-view::-webkit-scrollbar {
+.coupon-all ::v-deep .uni-scroll-view::-webkit-scrollbar {
 	display: none;
 }
 </style>

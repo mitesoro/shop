@@ -209,7 +209,7 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ .empty {
+::v-deep .empty {
 	margin-top: 0 !important;
 }
 .my_spell_category {
@@ -398,8 +398,8 @@ export default {
 }
 </style>
 <style scoped>
->>> .uni-countdown__number,
->>> .uni-countdown__splitor {
+::v-deep .uni-countdown__number,
+::v-deep .uni-countdown__splitor {
 	margin: 0;
 	padding: 0;
 }

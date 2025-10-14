@@ -630,8 +630,8 @@
 	}
 }
 
-.member-complete-info-popup /deep/ .uni-popup__wrapper.bottom,
-.member-complete-info-popup /deep/ .uni-popup__wrapper.bottom .uni-popup__wrapper-box {
+.member-complete-info-popup ::v-deep .uni-popup__wrapper.bottom,
+.member-complete-info-popup ::v-deep .uni-popup__wrapper.bottom .uni-popup__wrapper-box {
 	border-top-left-radius: 30rpx !important;
 	border-top-right-radius: 30rpx !important;
 }

@@ -37,8 +37,15 @@ export default {
 				},
 				fail: (res) => {
 					// #ifdef MP-WEIXIN
-					let scene = wx.getLaunchOptionsSync().scene;
-					if ([1154, 1155].indexOf(scene) == -1) {
+					try {
+						let scene = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync().scene || 0;
+						if ([1154, 1155].indexOf(scene) == -1) {
+							this.$util.showToast({
+								title: res.errMsg
+							});
+						}
+					} catch (e) {
+						console.log('获取启动场景失败:', e);
 						this.$util.showToast({
 							title: res.errMsg
 						});

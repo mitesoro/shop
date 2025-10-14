@@ -96,11 +96,11 @@ export default {
 </script>
 
 <style lang="scss">
-/deep/ .empty {
+::v-deep .empty {
 	margin-top: 0 !important;
 }
 
-/deep/ .member-point .mescroll-uni-content {
+::v-deep .member-point .mescroll-uni-content {
 	overflow: hidden;
 }
 

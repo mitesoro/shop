@@ -403,13 +403,13 @@ export default {
 }
 </style>
 <style scoped>
->>> .uni-countdown__number,
->>> .uni-countdown__splitor {
+::v-deep .uni-countdown__number,
+::v-deep .uni-countdown__splitor {
 	margin: 0;
 	padding: 0;
 }
 
-.time >>> .uni-countdown__number {
+.time ::v-deep .uni-countdown__number {
 	min-width: 28rpx;
 	height: 28rpx;
 	text-align: center;
@@ -422,7 +422,7 @@ export default {
 	border: none;
 }
 
-.time >>> .uni-countdown__splitor {
+.time ::v-deep .uni-countdown__splitor {
 	margin: 0 4rpx;
 }
 </style>

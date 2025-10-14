@@ -683,7 +683,7 @@
 		height: 50rpx;
 	}
 
-	/deep/.uni-scroll-view::-webkit-scrollbar {
+	::v-deep.uni-scroll-view::-webkit-scrollbar {
 		/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 		display: none;
 	}

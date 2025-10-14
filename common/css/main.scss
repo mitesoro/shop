@@ -237,7 +237,7 @@ button::after {
 	}
 }
 
-/deep/::-webkit-scrollbar {
+::v-deep::-webkit-scrollbar {
 	width: 0;
 	height: 0;
 	background-color: transparent;

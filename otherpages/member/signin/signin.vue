@@ -580,14 +580,14 @@ uni-page-refresh {
 </style>
 
 <style scoped>
-.wap-floating >>> .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+.wap-floating ::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: none !important;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
 }
 
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;

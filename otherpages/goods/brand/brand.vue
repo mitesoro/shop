@@ -97,7 +97,7 @@
 </script>
 
 <style lang="scss">
-	/deep/ .uni-grid-item {
+	::v-deep .uni-grid-item {
 		width: calc(100% / 3)
 	}
 

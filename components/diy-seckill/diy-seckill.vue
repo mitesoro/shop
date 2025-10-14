@@ -338,7 +338,7 @@ scroll-view ::-webkit-scrollbar {
 	background-color: transparent;
 }
 
-/deep/.uni-scroll-view ::-webkit-scrollbar {
+::v-deep.uni-scroll-view ::-webkit-scrollbar {
 	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 	display: none;
 	width: 0;
@@ -347,7 +347,7 @@ scroll-view ::-webkit-scrollbar {
 	background: transparent;
 }
 
-/deep/::-webkit-scrollbar {
+::v-deep::-webkit-scrollbar {
 	display: none;
 	width: 0;
 	height: 0;
@@ -604,7 +604,7 @@ scroll-view ::-webkit-scrollbar {
 		}
 	}
 }
-/deep/ .empty {
+::v-deep .empty {
 	height: 332rpx;
 }
 </style>

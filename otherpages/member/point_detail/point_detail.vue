@@ -254,7 +254,7 @@
 </script>
 
 <style lang="scss">
-	/deep/ .fixed {
+	::v-deep .fixed {
 		position: relative;
 		top: 0;
 	}

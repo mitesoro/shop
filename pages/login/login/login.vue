@@ -478,7 +478,7 @@ export default {
 </style>
 
 <style>
-/deep/ uni-toast .uni-simple-toast__text {
+::v-deep uni-toast .uni-simple-toast__text {
 	background: red !important;
 }
 </style>

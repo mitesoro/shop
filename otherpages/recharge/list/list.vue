@@ -258,7 +258,7 @@
 </script>
 
 <style lang="scss">
-	/deep/ .mescroll-uni-fixed {
+	::v-deep .mescroll-uni-fixed {
 		bottom: 280rpx !important;
 	}
 

@@ -387,15 +387,15 @@ export default {
 @import '../public/css/cards.scss';
 </style>
 <style scoped>
->>> .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
 	background: none !important;
 }
 
->>> .uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+::v-deep .uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
 	overflow: unset;
 }
 
-/deep/ .reward-popup .uni-popup__wrapper-box {
+::v-deep .reward-popup .uni-popup__wrapper-box {
 	background: none !important;
 	max-width: unset !important;
 	max-height: unset !important;

@@ -90,7 +90,7 @@
 </script>
 
 <style lang="scss" scoped>
-	/deep/ .fixed {
+	::v-deep .fixed {
 		position: relative;
 		top: 0;
 	}
