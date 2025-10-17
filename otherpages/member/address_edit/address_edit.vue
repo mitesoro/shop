@@ -44,36 +44,25 @@
 					v-model="formData.telephone"
 				/>
 			</view>
-			<!--  外卖地址区分 -->
+			<!--  地区选择 -->
 			<view class="edit-item">
 				<text class="tit">
 					{{ $lang('receivingCity') }}
 					<text>*</text>
 				</text>
-				<view class="text_inp" :class="{ empty: !formData.full_address, 'color-tip': !formData.full_address }" @click="selectAddress">
-					{{ formData.full_address ? formData.full_address : '请选择省市区县' }}
-				</view>
-			
-				<text @click="selectAddress" class="padding-left iconfont iconlocation"></text>
-			</view>
-			<!-- <view class="edit-item">
-				<text class="tit">
-					{{ $lang('receivingCity') }}
-					<text>*</text>
-				</text>
 				<pick-regions :default-regions="defaultRegions" @getRegions="handleGetRegions">
-					<text class="select-address " :class="{ empty: !formData.full_address, 'color-tip': !formData.full_address }">
+					<text class="select-address" :class="{ empty: !formData.full_address, 'color-tip': !formData.full_address }">
 						{{ formData.full_address ? formData.full_address : '请选择省市区县' }}
 					</text>
 				</pick-regions>
-			</view> -->
+			</view>
 			<view class="edit-item">
 				<text class="tit">
 					{{ $lang('address') }}
 					<text>*</text>
 				</text>
 				<input class="uni-input" type="text" placeholder-class="placeholder-class" :placeholder="$lang('addressPlaceholder')" maxlength="50" v-model="formData.address" />
-				<!-- <text @click="selectAddress" class="padding-left iconfont iconlocation"></text> -->
+				<text @click="selectAddress" class="padding-left iconfont iconlocation" title="选择位置"></text>
 			</view>
 		</view>
 		<view class="btn">
@@ -176,10 +165,18 @@ export default {
 						this.formData.latitude = data.latitude;
 						this.formData.longitude = data.longitude;
 						this.formData.is_default = data.is_default;
+						
+						// 确保地区ID数据完整性
+						this.formData.province_id = data.province_id || '';
+						this.formData.city_id = data.city_id || '';
+						this.formData.district_id = data.district_id || '';
+						
+						// 构建addressValue（用于兼容旧逻辑）
 						this.addressValue = '';
 						this.addressValue += res.data.province_id != undefined ? res.data.province_id : '';
 						this.addressValue += res.data.city_id != undefined ? '-' + res.data.city_id : '';
 						this.addressValue += res.data.district_id != undefined ? '-' + res.data.district_id : '';
+						
 						this.localType = data.type;
 						this.defaultRegions = [data.province_id, data.city_id, data.district_id];
 					}
@@ -199,14 +196,37 @@ export default {
 				},
 				success: res => {
 					if (res.code == 0) {
+						// 更新显示的地址
 						this.formData.full_address = '';
 						this.formData.full_address += res.data.province != undefined ? res.data.province : '';
 						this.formData.full_address += res.data.city != undefined ? '-' + res.data.city : '';
 						this.formData.full_address += res.data.district != undefined ? '-' + res.data.district : '';
+						
+						// 更新地区ID
+						this.formData.province_id = res.data.province_id || '';
+						this.formData.city_id = res.data.city_id || '';
+						this.formData.district_id = res.data.district_id || '';
+						
+						// 更新addressValue（用于兼容旧逻辑）
 						this.addressValue = '';
 						this.addressValue += res.data.province_id != undefined ? res.data.province_id : '';
 						this.addressValue += res.data.city_id != undefined ? '-' + res.data.city_id : '';
 						this.addressValue += res.data.district_id != undefined ? '-' + res.data.district_id : '';
+						
+						// 同步更新联动选择器的默认值，确保界面显示一致
+						this.defaultRegions = [
+							res.data.province_id || '',
+							res.data.city_id || '', 
+							res.data.district_id || ''
+						];
+						
+						console.log('地图定位地址更新:', {
+							full_address: this.formData.full_address,
+							province_id: this.formData.province_id,
+							city_id: this.formData.city_id,
+							district_id: this.formData.district_id,
+							defaultRegions: this.defaultRegions
+						});
 					} else {
 						this.showToast({
 							title: '数据有误'
@@ -217,14 +237,36 @@ export default {
 		},
 		// 获取选择的地区
 		handleGetRegions(regions) {
+			console.log('选择的地区:', regions);
+			
+			if (!regions || !Array.isArray(regions) || regions.length < 3) {
+				console.error('地区数据格式错误:', regions);
+				return;
+			}
+			
+			// 构建地区显示文本
 			this.formData.full_address = '';
-			this.formData.full_address += regions[0] != undefined ? regions[0].label : '';
-			this.formData.full_address += regions[1] != undefined ? '-' + regions[1].label : '';
-			this.formData.full_address += regions[2] != undefined ? '-' + regions[2].label : '';
+			this.formData.full_address += regions[0] && regions[0].label ? regions[0].label : '';
+			this.formData.full_address += regions[1] && regions[1].label ? '-' + regions[1].label : '';
+			this.formData.full_address += regions[2] && regions[2].label ? '-' + regions[2].label : '';
+			
+			// 设置地区ID
+			this.formData.province_id = regions[0] && regions[0].value ? regions[0].value : '';
+			this.formData.city_id = regions[1] && regions[1].value ? regions[1].value : '';
+			this.formData.district_id = regions[2] && regions[2].value ? regions[2].value : '';
+			
+			// 构建地区值（用于兼容旧逻辑）
 			this.addressValue = '';
-			this.addressValue += regions[0] != undefined ? regions[0].value : '';
-			this.addressValue += regions[1] != undefined ? '-' + regions[1].value : '';
-			this.addressValue += regions[2] != undefined ? '-' + regions[2].value : '';
+			this.addressValue += this.formData.province_id ? this.formData.province_id : '';
+			this.addressValue += this.formData.city_id ? '-' + this.formData.city_id : '';
+			this.addressValue += this.formData.district_id ? '-' + this.formData.district_id : '';
+			
+			console.log('地区处理结果:', {
+				full_address: this.formData.full_address,
+				province_id: this.formData.province_id,
+				city_id: this.formData.city_id,
+				district_id: this.formData.district_id
+			});
 		},
 
 		selectAddress() {
@@ -353,17 +395,21 @@ export default {
 			if (this.flag) return;
 			this.flag = true;
 			if (this.vertify()) {
-				let addressValueArr = this.addressValue.split('-'),
-					data = {},
+				let data = {},
 					url = '';
+
+				// 优先使用 formData 中的地区ID，如果不存在则从 addressValue 中解析
+				let province_id = this.formData.province_id || (this.addressValue ? this.addressValue.split('-')[0] : '');
+				let city_id = this.formData.city_id || (this.addressValue ? this.addressValue.split('-')[1] : '');
+				let district_id = this.formData.district_id || (this.addressValue ? this.addressValue.split('-')[2] : '');
 
 				data = {
 					name: this.formData.name,
 					mobile: this.formData.mobile,
 					telephone: this.formData.telephone,
-					province_id: addressValueArr[0],
-					city_id: addressValueArr[1],
-					district_id: addressValueArr[2],
+					province_id: province_id,
+					city_id: city_id,
+					district_id: district_id,
 					community_id: 0,
 					address: this.formData.address,
 					full_address: this.formData.full_address,

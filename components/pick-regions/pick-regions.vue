@@ -34,16 +34,25 @@ export default {
 	},
 	computed: {
 		multiArray() {
-			if (!this.isLoadDefaultAreas) return;
-			var arr = this.pickedArr.map(arr => arr.map(item => item.label));
-			return arr;
+			if (!this.isLoadDefaultAreas || !this.pickedArr) return [[], [], []];
+			return this.pickedArr.map(arr => (arr || []).map(item => item ? item.label : ''));
 		},
 		pickedArr() {
+			// 确保数组结构完整
+			const defaultArray = [[], [], []];
 			// 进行初始化
-			if (this.isInitMultiArray) {
-				return [this.pickerValueArray[0], this.pickerValueArray[1], this.pickerValueArray[2]];
+			if (this.isInitMultiArray && this.pickerValueArray) {
+				return [
+					this.pickerValueArray[0] || [],
+					this.pickerValueArray[1] || [],
+					this.pickerValueArray[2] || []
+				];
 			}
-			return [this.pickerValueArray[0], this.cityArr, this.districtArr];
+			return [
+				this.pickerValueArray[0] || [],
+				this.cityArr || [],
+				this.districtArr || []
+			];
 		}
 	},
 	created() {
@@ -51,30 +60,62 @@ export default {
 	},
 	methods: {
 		async handleColumnChange(e) {
-			this.isInitMultiArray = false;
-			let col = e.detail.column;
-			let row = e.detail.value;
-			this.multiIndex[col] = row;
-			switch (col) {
-				case 0:
-					//选择省，加载市、区县
-					this.cityArr = await this.getAreasAsync(this.pickerValueArray[0][this.multiIndex[col]].value);
-					this.districtArr = await this.getAreasAsync(this.cityArr[0].value);
-					break;
-				case 1:
-					//选择市，加载区县
-					this.districtArr = await this.getAreasAsync(this.cityArr[this.multiIndex[col]].value);
-					break;
-				case 2:
-					break;
+			try {
+				this.isInitMultiArray = false;
+				let col = e.detail.column;
+				let row = e.detail.value;
+				this.multiIndex[col] = row;
+				
+				// 重置后续列的索引
+				for (let i = col + 1; i < 3; i++) {
+					this.$set(this.multiIndex, i, 0);
+				}
+				
+				switch (col) {
+					case 0:
+						//选择省，加载市、区县
+						if (this.pickerValueArray[0] && this.pickerValueArray[0][row]) {
+							this.cityArr = await this.getAreasAsync(this.pickerValueArray[0][row].value);
+							if (this.cityArr && this.cityArr.length > 0) {
+								this.districtArr = await this.getAreasAsync(this.cityArr[0].value);
+							}
+						}
+						break;
+					case 1:
+						//选择市，加载区县
+						if (this.cityArr && this.cityArr[row]) {
+							this.districtArr = await this.getAreasAsync(this.cityArr[row].value);
+						}
+						break;
+					case 2:
+						break;
+				}
+			} catch (error) {
+				console.error('地区选择出错:', error);
 			}
 		},
 		handleValueChange(e) {
-			// 结构赋值
-			let [index0, index1, index2] = e.detail.value;
-			let [arr0, arr1, arr2] = this.pickedArr;
-			let address = [arr0[index0], arr1[index1], arr2[index2]];
-			this.$emit('getRegions', address);
+			try {
+				// 结构赋值
+				let [index0, index1, index2] = e.detail.value;
+				let [arr0, arr1, arr2] = this.pickedArr;
+				
+				// 确保数组和索引都存在
+				if (!arr0 || !arr1 || !arr2) return;
+				
+				let address = [
+					arr0[index0] || null,
+					arr1[index1] || null,
+					arr2[index2] || null
+				].filter(item => item !== null);
+				
+				// 只有当三级都选择完成时才触发事件
+				if (address.length === 3) {
+					this.$emit('getRegions', address);
+				}
+			} catch (error) {
+				console.error('地区选择结果处理出错:', error);
+			}
 		},
 		handleDefaultRegions() {
 			var time = setInterval(() => {
@@ -129,10 +170,13 @@ export default {
 				url: '/api/address/lists',
 				data: { pid: pid },
 				success: res => {
-					if (res.code == 0) {
+					if (res && res.code == 0 && res.data && Array.isArray(res.data)) {
 						var data = [];
 						var selected = undefined;
+						
 						res.data.forEach((item, index) => {
+							if (!item || !item.id || !item.name) return;
+							
 							if (obj != undefined) {
 								if (obj.level == 0 && obj.province_id != undefined) {
 									selected = obj.province_id;
@@ -149,39 +193,61 @@ export default {
 							data.push({
 								value: item.id,
 								label: item.name,
-								level: item.level
+								level: item.level || 0
 							});
 						});
 
-						this.pickerValueArray[obj.level] = data;
-						if (obj.level + 1 < 3) {
+						// 确保数组初始化
+						if (!this.pickerValueArray) {
+							this.pickerValueArray = [[], [], []];
+						}
+						
+						this.$set(this.pickerValueArray, obj.level, data);
+						
+						if (obj.level + 1 < 3 && selected) {
 							obj.level++;
 							this.getDefaultAreas(selected, obj);
 						} else {
 							this.isInitMultiArray = true;
 							this.isLoadDefaultAreas = true;
 						}
+					} else {
+						console.error('获取地区数据失败:', res);
 					}
+				},
+				fail: (error) => {
+					console.error('地区数据请求失败:', error);
 				}
 			});
 		},
 		// 同步获取地区
 		async getAreasAsync(pid) {
-			let res = await this.$api.sendRequest({
-				url: '/api/address/lists',
-				data: { pid: pid },
-				async: false
-			});
-			if (res.code == 0) {
-				var data = [];
-				res.data.forEach((item, index) => {
-					data.push({
-						value: item.id,
-						label: item.name,
-						level: item.level
-					});
+			try {
+				if (!pid) return [];
+				
+				let res = await this.$api.sendRequest({
+					url: '/api/address/lists',
+					data: { pid: pid },
+					async: false
 				});
-				return data;
+				
+				if (res && res.code == 0 && res.data && Array.isArray(res.data)) {
+					var data = [];
+					res.data.forEach((item, index) => {
+						if (item && item.id && item.name) {
+							data.push({
+								value: item.id,
+								label: item.name,
+								level: item.level || 0
+							});
+						}
+					});
+					return data;
+				}
+				return [];
+			} catch (error) {
+				console.error('获取地区数据失败:', error);
+				return [];
 			}
 		},
 		// 异步获取地区
