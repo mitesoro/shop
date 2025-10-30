@@ -182,10 +182,15 @@
 			this.getCategoryList();
 		},
 		computed: {
-			bgImg() {
-				var bgImgVal = this.bgUrl ? 'background:' + 'url(' + this.$util.img(this.bgUrl) + ') no-repeat 0 0/100%' : '';
-				return bgImgVal;
-			},
+		bgImg() {
+			// 当使用背景图片时，从全局数据获取真实的背景图片路径
+			if (this.$root.diyData?.global?.topNavbg && this.$root.diyData?.global?.bgUrl) {
+				return 'background:' + 'url(' + this.$util.img(this.$root.diyData.global.bgUrl) + ') no-repeat 0 0/100%';
+			} else if (this.bgUrl && this.bgUrl !== 'transparent') {
+				return 'background:' + 'url(' + this.$util.img(this.bgUrl) + ') no-repeat 0 0/100%';
+			}
+			return '';
+		},
 			maxPage() {
 				let num = 0;
 				if (this.twoCategorylist && this.twoCategorylist.length) {
@@ -455,6 +460,7 @@
 		display: flex;
 		align-items: center;
 		z-index: 9;
+		background-color: transparent;
 		.text-fiexd {
 			.text-con {
 				line-height: 60rpx;

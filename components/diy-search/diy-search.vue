@@ -101,10 +101,14 @@ export default {
 		searchBoxCss(){
 			let diyDataGlobal = this.$root.diyData.global,
 				html = "";
-			if (diyDataGlobal.topNavbg && this.pageScrollTop > 20)
+			// 如果使用背景图片，搜索框背景透明；否则使用配置的背景色
+			if (diyDataGlobal.topNavbg) {
+				html += `background-color: transparent;`;
+			} else if (this.pageScrollTop > 20) {
 				html += `background-color: ${diyDataGlobal.topNavColor};`;
-			else
+			} else {
 				html += `background-color: ${this.value.backgroundColor || ''};`;
+			}
 			if(this.value.searchType == 3 && this.value.isPosition == 2){
 				html += 'position: fixed;';
 				html += `top: ${this.fixedTop};`;

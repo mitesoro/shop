@@ -156,7 +156,12 @@ export default {
 		bgImg() {
 			let str = '';
 			if (this.diyData && this.diyData.global) {
-				str = this.diyData.global.topNavbg ? 'url(' + this.$util.img(this.diyData.global.bgUrl) + ')' : this.diyData.global.bgColor;
+				if (this.diyData.global.topNavbg && this.diyData.global.bgUrl) {
+					// 使用接口下发的背景图片，并添加自然的渐变过渡
+					str = 'linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(255,255,255,0.7) 75%, rgba(255,255,255,0.95) 90%, #ffffff 100%), url(' + this.$util.img(this.diyData.global.bgUrl) + ')';
+				} else {
+					str = this.diyData.global.bgColor || '';
+				}
 			}
 			return str;
 		},
@@ -175,8 +180,12 @@ export default {
 			}
 		},
 		backgroundUrl() {
-			var str = this.bgUrl ? 'background:' + 'url(' + this.$util.img(this.bgUrl) + ') no-repeat 0 0/100%' : '';
-			return str;
+			if (this.diyData && this.diyData.global && this.diyData.global.topNavbg && this.diyData.global.bgUrl) {
+				return 'background:' + 'url(' + this.$util.img(this.diyData.global.bgUrl) + ') no-repeat 0 0/100%';
+			} else if (this.bgUrl && this.bgUrl !== 'transparent') {
+				return 'background:' + 'url(' + this.$util.img(this.bgUrl) + ') no-repeat 0 0/100%';
+			}
+			return '';
 		},
 		scrollHeight() {
 			if (this.pageHeight != undefined && this.headerHeight != undefined && this.bottomHeight != undefined) {
@@ -564,8 +573,9 @@ image {
 	/* #endif */
 }
 .page_img {
-	background-size: contain !important;
-	background-repeat: no-repeat !important;
+	background-size: 100% 100%, 100% auto !important;
+	background-repeat: no-repeat, no-repeat !important;
+	background-position: center center, top center !important;
 }
 .bg-index {
 	width: 100%;
